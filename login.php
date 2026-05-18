@@ -28,11 +28,11 @@ if ($result->num_rows > 0) {
 
     if (password_verify($password_input, $row['password'])) {
 
-        echo "Logowanie OK<br>";
-        echo '<a href="index.php"><button>Powrót na strone główną</button></a>';
-
         $_SESSION['loggedin'] = true;
         $_SESSION['user'] = $row;
+
+        header("Location: dashboard.php");
+        exit();
 
     } else {
         echo "Złe hasło<br>";
