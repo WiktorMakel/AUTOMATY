@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tytuł Strony</title>
+   <style>
+		canvas{
+			border: 1px solid gray;
+			width:600px;
+			height:400px;
+			}
+   </style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	
+	<script>
+		const canvas = document.getElementById('canvas')
+		const ctx = canvas.getContext('2d')
+		
+		let posX = 0;
+		let posY = 0;
+		
+		const particles = [];
+		
+		for(let i = 0; i < 100;i++){
+			let particle = {
+				posX:0,
+				posY:0,
+				opacity:1,
+				speedX:1,
+				speedY:1
+			}
+		}
+		
+		console.log(particle)
+
+		aniamte();
+		
+		function aniamte(){
+			ctx.clearRect(0,0,600,400)
+			particles.forEach(particle => {
+				if(particle.posX > 600){
+					particle.posX = 300;
+				} else {
+					particle.posX += particle.speedX;
+				}
+				if(particle.posY > 400){
+					particle.posY = 200;
+				} else {
+					particle.posY += particle.speedY;
+				}
+				ctx.fillRect(particle.posX,particle.posY,10,10)
+			})
+			
+			requestAnimationFrame(animate)
+		}
+	</script>
+</body>
+</html>
