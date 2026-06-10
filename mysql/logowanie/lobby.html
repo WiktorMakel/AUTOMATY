@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <title>Header Float</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#000;
+      font-family:'Outfit', sans-serif;
+      padding:30px;
+      color:white;
+    }
+
+    section{
+      width:100%;
+      max-width:1400px;
+      margin:30px auto;
+      padding:60px;
+      background:rgba(25,25,25,0.9);
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.05);
+      font-size:32px;
+      text-align:center;
+    }
+
+
+    .header{
+      width:100%;
+      max-width:1400px;
+      margin:auto;
+      padding:30px 40px;
+      background:rgba(25,25,25,0.9);
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.05);
+      overflow:hidden;
+    }
+
+    .logo{
+      float:left;
+      color:white;
+      font-size:56px;
+      font-weight:900;
+      letter-spacing:-3px;
+    }
+
+    .nav{
+      float:right;
+      margin-top:20px;
+    }
+
+    .nav a{
+      text-decoration:none;
+      color:white;
+      margin-left:40px;
+      font-size:18px;
+      position:relative;
+      transition:0.3s;
+    }
+
+    .nav a:hover{
+      color:#ff7a00;
+    }
+
+    .nav a.active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-10px;
+      width:100%;
+      height:2px;
+      background:#ff7a00;
+    }
+
+    #logos{
+      overflow: hidden;
+    }
+
+    .logos-track{
+      display: flex;
+      gap: 40px;
+      width: max-content;
+      will-change: transform;
+    }
+
+    #logos img{
+      width:120px;
+      height:120px;
+      background:#333;
+      border-radius:8px;
+      margin:20px;
+      display:inline-block;
+    }
+
+    #stats{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .stat{
+      flex:1;
+      background:#e6ab0c;
+      padding:40px;
+      border-radius:8px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border: 1px solid rgba(48, 33, 33, 0.05);
+    }
+
+    #hero{
+      display: grid;
+      grid-template-areas:
+          "sky par aim";
+    }
+
+    h1{
+      margin: 10px;
+      display: flex;
+    }
+    
+    .num{
+        font-size: 60px;
+        font-weight: 900;
+    }
+
+    .datatxt{
+        font-size: 26px;
+        font-weight: 500;
+    }
+
+    .AIM{
+      grid-area: aim;
+    }
+    .SKY{
+      grid-area: sky;
+    }
+    .desc{
+      grid-area: par;
+    }
+
+    @media screen and (max-width: 600px) {
+      #hero{
+        grid-template-areas: 
+          "aim"
+          "sky"
+          "par"
+      }
+    }
+    
+
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">FRYDMAN.</div>
+
+    <nav class="nav">
+      <a href="#" class="active">HOME</a>
+      <a href="#">ABOUT</a>
+      <a href="#">WORK</a>
+      <a href="#">BLOG</a>
+      <a href="#">CONTACT</a>
+    </nav>
+  </header>
+
+  <div id="container">
+
+    <section id="hero">
+        <h1 class="AIM" id="itema">AIM</h1>
+        <h1 class="SKY" id="itemb">SKY</h1>
+
+        <h2 class="tagline">WHERE INNOVATION MEETS DESIGN</h2>
+
+        <p class="desc">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Consequatur, rerum dolor. Accusamus velit quod fugiat 
+            unde saepe consequuntur temporibus sequi deleniti 
+            perspiciatis beatae doloribus maxime eligendi, 
+            cumque cupiditate recusandae voluptas.
+        </p>
+
+        <a href="#" class="btn">Projects</a>
+    </section>
+
+    <section id="logos">
+      <div class="logos-track">
+        <img class="logo" src="#">
+        <img class="logo" src="#">
+        <img class="logo" src="#">
+        <img class="logo" src="#">
+      </div>
+    </section>
+
+    <section id="stats">
+      <div class="stat">
+        <div class="dot"></div>
+        <div class="data">
+            <div class="num">15+</div>
+            <div class="datatxt">NumbersAndFacts</div>
+        </div></div>
+      <div class="stat">
+        <div class="dot"></div>
+        <div class="data">
+            <div class="num">82+</div>
+            <div class="datatxt">CompleteProjects</div>
+        </div></div>
+      <div class="stat">
+        <div class="dot"></div>
+        <div class="data">
+            <div class="num">12+</div>
+            <div class="datatxt">AwardsWon</div>
+        </div></div>
+      <div class="stat">
+        <div class="dot"></div>
+        <div class="data">
+            <div class="num">5+</div>
+            <div class="datatxt">NumbersAndFacts</div>
+        </div></div>
+    </section>
+
+  </div>
+  <script>
+    const track = document.querySelector(".logos-track");
+
+    Array.from(track.children).forEach(el => track.appendChild(el.cloneNode(true)));
+
+    let x = 0;
+    const speed = 1;
+      
+
+
+      function animate(){
+        x += speed;
+
+        const half = track.scrollWidth / 4;
+
+        if(x >= half){
+          x = 0;
+        }
+
+        track.style.transform = `translateX(${x}px)`;
+
+        requestAnimationFrame(animate);
+      }
+      animate()
+
+  </script>
+
+</body>
+</html>

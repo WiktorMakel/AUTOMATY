@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <title>Header Float</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#000;
+      font-family:'Outfit', sans-serif;
+      padding:30px;
+      color:white;
+    }
+
+        .AIM{
+            grid-area: aim
+        }
+        .SKY{
+            grid-area: sky
+        }
+        .desc{
+            grid-area: par
+        }
+
+
+    section{
+        display: grid;
+        grid-template-areas: 
+            "sky par aim"
+    }
+
+
+    h1{
+        margin: 10px;
+        display: flex;
+    }
+
+    @media screen and (max-width: 600px) {
+        section{
+            display: grid;
+            grid-template-areas: 
+                "aim"
+                "sky"
+                "par"
+        }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="container">
+
+    <section id="hero">
+        <h1 class="AIM" id="itema">AIM</h1>
+        <h1 class="SKY" id="itemb">SKY</h1>
+
+        <p class="desc">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Consequatur, rerum dolor. Accusamus velit quod fugiat 
+            unde saepe consequuntur temporibus sequi deleniti 
+            perspiciatis beatae doloribus maxime eligendi, 
+            cumque cupiditate recusandae voluptas.
+            WHERE INNOVATION MEETS DESIGN
+        </p>
+       
+    </section>
+
+  </div>
+
+</body>
+</html>
