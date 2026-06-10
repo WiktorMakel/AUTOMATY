@@ -100,7 +100,6 @@
       height:120px;
       background:#333;
       border-radius:8px;
-      margin:20px;
       display:inline-block;
     }
 
@@ -235,30 +234,32 @@
 
   </div>
   <script>
-    const track = document.querySelector(".logos-track");
+const track = document.querySelector(".logos-track");
 
-    Array.from(track.children).forEach(el => track.appendChild(el.cloneNode(true)));
+const logos = [...track.children];
 
-    let x = 0;
-    const speed = 1;
-      
+logos.forEach(logo => {
+    track.appendChild(logo.cloneNode(true));
+});
 
+let x = 0;
+const speed = 1;
 
-      function animate(){
-        x += speed;
+const resetPoint = track.scrollWidth / 2;
 
-        const half = track.scrollWidth / 4;
+function animate() {
+    x += speed;
 
-        if(x >= half){
-          x = 0;
-        }
+    if (x >= resetPoint) {
+        x = 0;
+    }
 
-        track.style.transform = `translateX(${x}px)`;
+    track.style.transform = `translateX(-${x}px)`;
 
-        requestAnimationFrame(animate);
-      }
-      animate()
+    requestAnimationFrame(animate);
+}
 
+animate();
   </script>
 
 </body>
