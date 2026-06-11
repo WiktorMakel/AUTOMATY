@@ -85,22 +85,28 @@
     }
 
     #logos{
-      overflow: hidden;    }
+      overflow: hidden;
+      height: 120px;   
+    }
 
     .logos-track{
       display: flex;
       gap: 40px;
       width: max-content;
       will-change: transform;
-	  position: relative;
+	    position: relative;
+      height: 120px;
+      align-items: center;
     }
 
     #logos img{
-      width:120px;
-      height:120px;
-      background:#333;
-      border-radius:8px;
-      display:inline-block;
+      width:200px;
+      height: 120px;
+      flex: none;
+      display: inline-block;
+      object-fit: contain;
+      top: 1%;
+      transform: translateY(-50%);
     }
 
     #stats{
@@ -198,10 +204,11 @@
 
     <section id="logos">
       <div class="logos-track">
-        <img class="logo" src="#">
-        <img class="logo" src="#">
-        <img class="logo" src="#">
-        <img class="logo" src="#">
+        <img class="logo" src="https://cdn.prod.website-files.com/667187163156a5df09557ecd/66718929b94075e2e4bf45d7_Clandestine.png">
+        <img class="logo" src="https://cdn.prod.website-files.com/667187163156a5df09557ecd/66718928cd8e49ee08fc2851_Boltshift.png">
+        <img class="logo" src="https://cdn.prod.website-files.com/667187163156a5df09557ecd/66718928ef8e98daee5d2194_Biosynthesis.png">
+        <img class="logo" src="https://cdn.prod.website-files.com/667187163156a5df09557ecd/66718928f03ba80213937439_BuildingBlocks.png">
+        <img class="logo" src="https://cdn.prod.website-files.com/667187163156a5df09557ecd/6671892dcec7b07cda4ce273_Alt%2BShift.png">
       </div>
     </section>
 
@@ -234,20 +241,23 @@
 
   </div>
   <script>
-const logo = document.querySelectorALL(".logo");
+let logos = document.querySelectorAll("#logos img");
+const track = document.querySelector(".logos-track");
+const originalCount = logos.length;
 
-/*logos.forEach(logo => {
+logos.forEach(logo => {
     track.appendChild(logo.cloneNode(true));
 });
-*/
 
-const speed = 1;
+logos = document.querySelectorAll("#logos img");
+
+const speed = 0.4;
 const position = [];
-const width = 100;
-const gap = 10;
+const width = 300;
+const gap = 30;
 
 logos.forEach((logo,i) => {
-	position.push(i * (width + gap);
+	position.push(i * (width + gap));
 	logo.style.position = "absolute";
 	});
 
